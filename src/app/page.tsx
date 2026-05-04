@@ -1,11 +1,10 @@
-import { Button } from "@/shared/ui/button";
+import { GamesList } from "@/features/games-list/server";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div>
-      <Button size="lg" variant={"destructive"}>
-        Hello
-      </Button>
+    <div className="flex flex-col gap-8 container mx-auto pt-28">
+      <h1 className="text-4xl font-bold">Игры</h1>
+      <GamesList />
     </div>
   );
 }
