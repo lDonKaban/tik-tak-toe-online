@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "@/shared/lib/zod-init"; // Русская локализация ошибок zod — до всех остальных импортов
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,11 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col dark">{children}</body>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased flex flex-col grow min-h-screen dark`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
