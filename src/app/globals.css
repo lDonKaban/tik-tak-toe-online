@@ -4,6 +4,7 @@
 @layer theme {
   :root, :host {
     --font-sans: var(--fontt-geist-sans);
+    --color-emerald-300: oklch(84.5% 0.143 164.978);
     --spacing: 0.25rem;
     --container-md: 28rem;
     --text-xs: 0.75rem;
@@ -192,6 +193,9 @@
   .start {
     inset-inline-start: var(--spacing);
   }
+  .top-1\/2 {
+    top: calc(1 / 2 * 100%);
+  }
   .top-2 {
     top: calc(var(--spacing) * 2);
   }
@@ -203,6 +207,9 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
+  }
+  .left-1\/2 {
+    left: calc(1 / 2 * 100%);
   }
   .col-start-2 {
     grid-column-start: 2;
@@ -280,11 +287,29 @@
   .h-full {
     height: 100%;
   }
+  .h-screen {
+    height: 100vh;
+  }
+  .min-h-1\/2 {
+    min-height: calc(1 / 2 * 100%);
+  }
+  .min-h-2\/3 {
+    min-height: calc(2 / 3 * 100%);
+  }
+  .min-h-3\/4 {
+    min-height: calc(3 / 4 * 100%);
+  }
+  .min-h-auto {
+    min-height: auto;
+  }
   .min-h-full {
     min-height: 100%;
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .min-h-svh {
+    min-height: 100svh;
   }
   .w-1\/2 {
     width: calc(1 / 2 * 100%);
@@ -309,6 +334,30 @@
   }
   .grow {
     flex-grow: 1;
+  }
+  .translate-0\.5 {
+    --tw-translate-x: calc(var(--spacing) * 0.5);
+    --tw-translate-y: calc(var(--spacing) * 0.5);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-1\/2 {
+    --tw-translate-x: calc(1 / 2 * 100%);
+    --tw-translate-y: calc(1 / 2 * 100%);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-1\/2 {
+    --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .\[transform\:translate\(-50\%\,-50\%\)\] {
+    transform: translate(-50%,-50%);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .cursor-pointer {
     cursor: pointer;
@@ -703,6 +752,13 @@
     &:hover {
       @media (hover: hover) {
         cursor: pointer;
+      }
+    }
+  }
+  .hover\:border-emerald-300 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-emerald-300);
       }
     }
   }
@@ -1352,6 +1408,41 @@
     font-family: var(--fontt-geist-sans);
   }
 }
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
@@ -1440,24 +1531,17 @@
   inherits: false;
   initial-value: solid;
 }
-@property --tw-translate-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-leading: initial;
@@ -1477,9 +1561,6 @@
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-outline-style: solid;
-      --tw-translate-x: 0;
-      --tw-translate-y: 0;
-      --tw-translate-z: 0;
       --tw-animation-delay: 0s;
       --tw-animation-direction: normal;
       --tw-animation-duration: initial;
