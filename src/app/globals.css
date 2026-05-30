@@ -4,7 +4,11 @@
 @layer theme {
   :root, :host {
     --font-sans: var(--fontt-geist-sans);
+    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-800: oklch(47.3% 0.137 46.201);
+    --color-amber-950: oklch(27.9% 0.077 45.635);
     --color-emerald-300: oklch(84.5% 0.143 164.978);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
     --spacing: 0.25rem;
     --container-md: 28rem;
     --text-xs: 0.75rem;
@@ -290,6 +294,9 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
+  .w-\[69px\] {
+    width: 69px;
+  }
   .w-full {
     width: 100%;
   }
@@ -369,6 +376,11 @@
       margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .divide-background {
+    :where(& > :not(:last-child)) {
+      border-color: var(--background);
+    }
+  }
   .self-start {
     align-self: flex-start;
   }
@@ -434,6 +446,12 @@
       border-bottom-color: color-mix(in oklab, var(--primary) 50%, transparent);
     }
   }
+  .bg-amber-800 {
+    background-color: var(--color-amber-800);
+  }
+  .bg-amber-950 {
+    background-color: var(--color-amber-950);
+  }
   .bg-background {
     background-color: var(--background);
   }
@@ -445,6 +463,9 @@
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--destructive) 10%, transparent);
     }
+  }
+  .bg-gray-800 {
+    background-color: var(--color-gray-800);
   }
   .bg-muted\/50 {
     background-color: var(--muted);
@@ -553,6 +574,9 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
+  .text-amber-50 {
+    color: var(--color-amber-50);
+  }
   .text-card-foreground {
     color: var(--card-foreground);
   }
@@ -577,6 +601,9 @@
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  .accent-background {
+    accent-color: var(--background);
   }
   .ring-1 {
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
